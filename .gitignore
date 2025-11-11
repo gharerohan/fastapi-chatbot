@@ -1,0 +1,7 @@
+# .gitignore
+.env
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+main1.py

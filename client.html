@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>LLM FastAPI Chat (SSE)</title>
+    <style>
+      body { font: 16px/1.4 system-ui, sans-serif; max-width: 800px; margin: 40px auto; }
+      #out { white-space: pre-wrap; border: 1px solid #ddd; padding: 12px; border-radius: 8px; min-height: 100px; }
+      input, button { font: inherit; padding: 8px 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>LLM FastAPI Chat (Streaming)</h1>
+    <input id="prompt" size="70" placeholder="Ask me anything..." />
+    <button id="go">Stream</button>
+    <div id="out"></div>
+
+    <script>
+      const go = document.getElementById('go');
+      const prompt = document.getElementById('prompt');
+      const out = document.getElementById('out');
+
+      go.onclick = () => {
+        out.textContent = '';
+        const url = '/chat/stream?q=' + encodeURIComponent(prompt.value);
+        const es = new EventSource(url);
+        es.onmessage = (e) => { out.textContent += e.data; };
+        es.addEventListener('done', () => es.close());
+        es.addEventListener('error', (e) => {
+          out.textContent += '\n\n[error] ' + e.data;
+          es.close();
+        });
+      };
+    </script>
+  </body>
+</html>
