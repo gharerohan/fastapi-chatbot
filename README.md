@@ -79,6 +79,7 @@ Then open your browser and visit:
 👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 You’ll see a simple chat UI that connects to your FastAPI backend.
+<img width="555" height="735" alt="image" src="https://github.com/user-attachments/assets/2c0e9f74-dcf2-4d36-af72-42da95863e97" />
 
 ---
 
