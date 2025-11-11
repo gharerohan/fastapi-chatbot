@@ -8,7 +8,7 @@ app = FastAPI()
 
 # Initialize the OpenAI client
 # It will automatically pick up the OPENAI_API_KEY environment variable
-# OPENAI_API_KEY="pest-your-api-key-here"
+# OPENAI_API_KEY="paste-your-api-key-here"
 
 try:
     client = OpenAI(api_key=OPENAI_API_KEY)
